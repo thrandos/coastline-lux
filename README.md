@@ -27,3 +27,11 @@ We are currently 10% through this list.
 We are currently 0% through this list :(
 
 - [x] test
+
+## Play Coastline!
+A genuinely fun Minecraft server with a focus on quality.
+
+[<img alt="modrinth" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg">](https://modrinth.com/server/coastline)
+
+
+> All Coastline branding files are considered All Rights Reserved and may not be used for any purposes without requesting permisssion from the creator. Such branding files include any files in this repository with the filename extension .png, .svg, .jpg, or any files found within the src/media folder. Any other contents of this repo are licensed under the GNU General Public License version 3.0, which can be found under LICENSE in the main directory.

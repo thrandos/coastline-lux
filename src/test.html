@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<!-- Hello! Welcome to the source code.-->
+<!-- If you see anything that could be -->
+<!-- done better, feel free to send me -->
+<!-- an email at support@thrandos.com. -->
+
+<!-- I took the time to make the source code pretty :) hope you like it-->
+
+
+<head>
+    <meta charset="utf-8"> 
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <title>Coastline</title>
+        
+        <link rel="icon" type="image/png" href="media/favicon.png">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+       
+       
+        <!--tailwind content is here for now because idk how build tools work :/ and I'm trying to be fast-->
+       
+       <script id="tailwind-config">
+        
+        tailwind.config = {
+            theme: {
+                extend: {
+                    "colors": {
+                        /* light theme goodbye
+                        "primary":                    "#1e1e1e",
+                        
+                        "background":                 "#f9f9f9",
+                        "on-surface":                 "#1a1c1c",
+                        "container":                  "#eeeeee",
+                        "container-highest":          "#e2e2e2",
+                        "container-lowest":           "#ffffff",
+                        "secondary":                  "#5d5f5f",
+                        "outline-variant":            "#c4c7c7",
+                        "on-surface-variant":         "#444748",
+                        "footer":                     "#003ad3"
+                        */
+
+                        "primary":                    "#f9f9f9",
+                        
+                        "background":                 "#1e1e1e",
+                        "on-surface":                 "#f5f5f5",
+                        "container":                  "#242424",
+                        "container-highest":          "#1a1a1a",
+                        "container-lowest":           "#121212",
+                        "secondary":                  "#b9bdbd",
+                        "outline-variant":            "#343434",
+                        "on-surface-variant":         "#c9c9c9",
+                        "footer":                     "#003ad3"
+                    },
+                   
+                    "spacing": {
+                        "margin-desktop":   "64px",
+                        "margin-mobile":    "20px",
+                        "gutter":           "24px",
+                        "container-max":    "1400px"
+                    },
+                    "fontFamily": {
+                        "display-l-mobile": ["Inter"], // stellar
+                        "display-l":        ["Inter"], // galactic planetary planetary intergalactic
+                        "label-s":          ["Inter"], // departmental
+                        "headline-m":       ["Inter"], // veinal chlorosis
+                        "body-lg":          ["Inter"], // active
+                        "body-md":          ["Inter"]  // library loans
+                    },
+                    "fontSize": {
+                        "display-l-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "display-l":        ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "label-s":          ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-m":       ["24px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "body-lg":          ["18px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "body-md":          ["15px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400" }]
+                    },
+                    "animation": {
+                        "slide-up-fade": "slideUpFade 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+                    },
+                    "keyframes": {
+                        "slideUpFade": {
+                            "0%": { opacity: "0", transform: "translateY(20px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+
+</head>
+    
+
+
+
+
+<!-- significant head-body separation (it worked for the microsoft signin portal devs)-->
+
+
+
+
+
+
+<body 
+    class="
+        bg-background 
+        antialiased
+        text-on-surface 
+        selection:bg-container-highest 
+        selection:text-on-surface
+        " 
+    
+    style="
+        background-image: 
+            linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25)),
+            url('media/bgtestrefitted.jpg');
+        background-size: cover;
+        background-position: right;
+        background-repeat: no-repeat;
+    ">
+    
+
+    <!-- main -->
+            <main class="flex-grow flex flex-col items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full py-16 md:py-40 justify-start">
+                <div class="w-full flex flex-col gap-12">
+                <div class="page-top flex flex-col gap-10 animate-slide-up-fade">
+                <div class="w-20 h-20 text-primary hidden md:block">
+                <img 
+                    src="media/logo.svg" 
+                    alt="The Coastline logo" 
+                    width="900"
+                    >
+            </div>
+        <h1 class="font-display-l text-display-l-mobile md:text-display-l tracking-tighter text-primary">Welcome to Coastline!</h1>
+        <p class="font-body-md text-body-lg text-on-surface">It is <span class="time" id="time"></span>. You should be in-game before <span class="time" id="timedone"></span>.*</br><span class=asterisk-text>*This is an estimation. The time doesn't update unless you reload the page.</span></p>
+
+            <!-- traer la hora -->
+             <script>
+                const time = document.getElementById('time');
+                const timedone = document.getElementById('timedone')
+
+                function formatTime(value) {
+                    return value.toLocaleTimeString([], {
+                        hour: 'numeric',
+                        minute: '2-digit'
+                    });
+                }
+
+                function updateTime() {
+                    const now = new Date();
+                    const plus2 = new Date(now.getTime() + 2 * 60 * 1000)
+
+                    time.textContent = formatTime (now);
+                    timedone.textContent = formatTime(plus2);
+                    
+                }
+
+                updateTime();
+                // setInterval(updateTime, 1000);
+             </script>
+            <!-- fin -->
+
+        </div>
+        
+        <!--surround-->
+        <div class="bg-container/90 border border-outline-variant/25 p-2 md:p-4 rounded-2xl shadow-[0_20px_60px_-35px_rgba(0,0,0,0.18)] backdrop-blur-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-2 md:gap-4 min-h-[600px]">
+
+    <!-- block0 -->
+        
+            <div class="bg-container-lowest rounded-lg overflow-hidden relative flex flex-col justify-end min-h-full group/card animate-slide-up-fade stagger-1">
+                <img 
+                    alt="Scenic view on Coastline" 
+                    class="absolute inset-0 w-full h-full object-cover parallax-bg" 
+                    src="media/skylight.png"
+                    >
+            </div>
+        
+    <!-- block1 -->
+        <div class="block-card animate-slide-up-fade stagger-2">
+        <div class="block-card__group">
+            
+        <div class="block-card__number">1</div>
+
+        <p class="block-card__copy">Download and install the Modrinth App. </p>
+
+    
+        <div class="block-card__actions">
+        
+
+        <a id="download-link" class="btn btn--download">
+            <span id="download-label">Download</span>
+            <span class="btn__icon" data-lucide="download"></span>
+        </a>
+
+                <!-- fiat ubuntu et macos -->
+                <script>
+                    const link = document.getElementById('download-link');
+                    const label = document.getElementById('download-label');
+
+                    const userAgent = navigator.userAgent || '';
+                    const platform = navigator.platform || '';
+
+                    //forcetesting
+                        //const isMac = false;
+
+                    const isMac = /Mac|iPhone|iPad/.test(userAgent) || /Mac/.test(platform);
+                    const isWindows = /Win/.test(platform) || /Windows/.test(userAgent);
+                    const isIpod = /iPod/.test(userAgent)
+
+                    if (isMac) {
+                        label.textContent = 'Download for macOS';
+                        link.href = 'https://launcher-files.modrinth.com/versions/0.17.3/macos/Modrinth%20App_0.17.3_universal.dmg'; // The Habrix motto "Macintosh Mackinac Mackinaw" is completely indecipherable and could mean nothing.
+                    } else if (isWindows) {
+                        label.textContent = 'Download for Windows'; 
+                        link.href = 'https://launcher-files.modrinth.com/versions/0.17.3/windows/Modrinth%20App_0.17.3_x64-setup.exe';
+                    } else if (isIpod) {
+                        console.log("I highly doubt you can run the app on an iPod."); // Though it would be very cool if you managed it.
+                    } else {
+                        label.textContent = 'Download';
+                        console.log("Platform not detected, or you're on Linux. Linux people are smart and know what they're doing.");
+                        link.href = 'https://modrinth.com/';
+                    }
+                </script>
+                <!-- end -->
+
+        <p class="block-card__note">We use Modrinth for its user-friendly UI and easy update delivery. Curseforge support may eventually be added, though it is unlikely.</p>
+
+        </div>
+        </div>
+        </div>
+
+
+    <!-- block2 -->
+        <div class="block-card animate-slide-up-fade stagger-3">
+        <div class="block-card__group">
+        <div class="block-card__number">2</div>
+        <div class="block2-image-shell">
+            
+                <div class="block2-imgframe">
+                    <img
+                        class="block2-img"
+                        src="media/tutorial.png"
+                        alt="Coastline's Modrinth page."
+                        >
+                </div>
+            
+        </div>
+        <div class="block-card__content">
+        <p class="block-card__copy">Go to <a class="link" href="https://modrinth.com/server/coastline">our page on Modrinth</a> and press Play.</p>
+        <p class="block-card__note">The app should open and the game should download.</p>
+        <p class="block-card__note">You can find the game instance later on the sidebar or the Library tab.</p>
+
+        </div>
+
+        </div>
+        </div>
+        </div>
+        </div>
+
+        </main>
+
+    <!-- foot -->
+        <footer class="bg-footer w-full py-12 border-t border-outline-variant/20 mt-12" style="margin-top: 0px">
+            <img 
+                src="media/banner.png" 
+                alt="Coastline banner logo." 
+                style="display: block; width: min(540px, calc(100% - 2rem)); height: auto; margin: 0 auto 2rem;"
+            >
+            <div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-gutter">
+            
+            <nav class="flex gap-8 my-6 md:my-0">
+            <a class="inline-block font-label-s text-label-s tracking-[0.1em] uppercase text-secondary hover:text-primary transition-all duration-300" href="https://discord.com/invite/e5jzkAj9Ms">
+                                Discord
+                            </a>
+            <a class="inline-block font-label-s text-label-s tracking-[0.1em] uppercase text-secondary hover:text-primary transition-all duration-300" href="https://docs.google.com/document/d/1zG8PJPRZj87nfJLzng3mKWnUeUz0nQopVYFm8IBTnNY/edit?usp=sharing">
+                                Info Doc
+                            </a>
+            <a class="inline-block font-label-s text-label-s tracking-[0.1em] uppercase text-secondary hover:text-primary transition-all duration-300" href="https://docs.google.com/document/d/1zG8PJPRZj87nfJLzng3mKWnUeUz0nQopVYFm8IBTnNY/edit?tab=t.8zcy7z7yfhea">
+                                Privacy & Terms
+                            </a>
+            </nav>
+            <div class="font-label-s text-label-s tracking-[0.1em] text-secondary">
+                            A project by Thrandos. © Copyright 2024-2026. All rights reserved.
+                        </div>
+
+            <div class="font-label-s text-label-s tracking-[0.1em] text-secondary">This website is open source! You can view the code <a class="footer-link" href="https://github.com/thrandos/coastline-lux">here</a>.</div>
+            </div>
+            
+        </footer>
+
+
+    <!-- fiat lucide -->
+    <script>
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    </script>
+
+</body>
+
+</html>
+
+<!--tada-->

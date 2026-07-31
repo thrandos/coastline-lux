@@ -1,0 +1,216 @@
+/* might not work */
+@font-face {
+    font-family: "the main one";
+    src: url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&amp;display=swap");
+}
+
+body {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.page-top {
+    padding-top: 1vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .stagger-1 { animation-delay: 0.2s; }
+    .stagger-2 { animation-delay: 0.3s; }
+    .stagger-3 { animation-delay: 0.4s; }
+    .stagger-4 { animation-delay: 0.5s; }
+    
+    .parallax-bg {
+        transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stagger-1, .stagger-2, .stagger-3 { animation: none; opacity: 1; }
+    .group\/card:hover .parallax-bg { transform: none; }
+    .btn-outline:hover { transform: none; box-shadow: none; }
+    .hover-lift { transform: none !important; box-shadow: none !important; }
+}
+
+.link, .footer-link {
+  text-decoration: underline;
+}
+
+.link {
+  color:#003ad3;
+}
+
+
+
+
+
+/* shared card shell */
+.block-card {
+  background-color: #1a1a1a;
+  border: 2px solid rgba(196, 199, 199, 0.2);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  .block-card {
+    padding: 2.5rem;
+  }
+}
+
+.block-card__group,
+.block-card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.block-card__group {
+  gap: 2rem;
+  height: 100%;
+}
+
+.block-card__content {
+  gap: 1rem;
+  flex: 1;
+}
+
+.block-card__number {
+  font-family: Inter, sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #f5f5f5;
+}
+
+.block-card__copy {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #f5f5f5;
+}
+
+.link-inline-group {
+  white-space: nowrap;
+}
+
+.link-inline-group svg {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: text-bottom;
+  margin-left: 0.15rem;
+}
+
+.block-card__note {
+  color: #c9c9c9;
+  opacity: 0.72;
+  line-height: 1.6;
+  max-width: 20rem;
+}
+
+.block-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.btn--download {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 0.375rem;
+}
+
+.btn__icon {
+  width: 18px;
+  height: 18px;
+}
+
+
+
+
+/* block2 preview */
+.block2-image-shell {
+  border-radius: 0.75rem;
+  border: 2px solid rgba(58, 58, 58, 0.7);
+  background-color: #252525;
+  overflow: hidden;
+}
+
+.block2-imgframe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.25rem;
+  background-color: #1f1f1f;
+}
+
+.block2-img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+
+
+
+/* button things */
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    background-color: #1f1f1f;
+    border: 1px solid #4b4b4b;
+    box-shadow: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: #f5f5f5;
+}
+
+.btn:hover {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #6b7280;
+}
+
+.btn:active {
+    transform: scale(0.99);
+    background-color: #161616;
+}
+
+.btn:focus-visible {
+    outline: 2px solid #003ad3;
+    outline-offset: 2px;
+}
+
+
+.time {
+    color: #e6bf00
+}
+
+.asterisk-text {
+    font-size: 13px;
+    color: #7e7e7e
+    
+}

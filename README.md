@@ -12,24 +12,37 @@ Right now there's one page, but I'll likely add some more later. Features includ
 
 This is my first attempt at using Tailwind CSS. As such, it's probably not the best it can be *but it still works*! 
 
-My source code is very pretty. [You should look at it.](https://github.com/thrandos/coastline-lux/blob/src/index.html)
+My source code is very pretty. [You should look at it.](https://github.com/thrandos/coastline-lux/blob/main/src/test.html)
 
 <img src=showcase.png alt=the website itself>
 
 
 ### Expected Additions
-We are currently 10% through this list.
+We are currently **20%** through this list.
 
-- [x] test
-- [ ] test2
+- [x] Download page
+- [ ] Carbon footprint calculation
+- [ ] Terms of Service & Privacy Policy
+- [ ] Better animations
+- [ ] Locomotive Scroll js library integration
 
 ### Aspirational Additions
-We are currently 0% through this list :(
+We are currently **0%** through this list :(
 
-- [x] test
+- [ ] An actual homepage with menus videos ctas etc.
+- [ ] Faction viewer + accounts (could be rough)
+- [ ] News/Updates page so I can move it out of the GDoc
+- [ ] Wiki? (this will be difficult)
+- [ ] Pages for all the other gamemodes I'm adding (lots to do)
+- [ ] All the proposed features for *Arsenal*
+- [ ] Packwell secret pages
 
 ## Play Coastline!
+> I'll make this better in a future commit.
+
 A genuinely fun Minecraft server with a focus on quality.
+
+Click the button below to learn more.
 
 [<img alt="modrinth" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg">](https://modrinth.com/server/coastline)
 

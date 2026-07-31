@@ -1,7 +1,7 @@
 <img width=200 src=horacio-lux.png>
 
 # Lux
-> A <img width=25 src=> Coastline project
+> A   project
 
 The website for the Coastline server network. Ironically, there's no light mode.
 

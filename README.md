@@ -1,24 +1,22 @@
 <img width=200 src=horacio-lux.png>
 
 # Lux
-> A   project
+> A Coastline project
 
-The website for the Coastline server network. Ironically, there's no light mode.
+The website for the Coastline server network. Ironically, there's no light mode :)
 
 Right now there's one page, but I'll likely add some more later.
 
-> [!Coastline!]
-> This is a blue information box.
+PLACEHOLDER FOR LARGE IMAGE
 
-| Your content goes inside this bordered box. |
-| :--- |
 
-<details>
-<summary>Click to expand the box</summary>
-
-Your hidden content or code goes here!
-
-</details>
+### Expected Additions
+We are currently 10% through this list.
 
 - [x] test
 - [ ] test2
+
+### Aspirational Additions
+We are currently 0% through this list :(
+
+- [x] test

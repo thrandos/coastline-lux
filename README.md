@@ -38,11 +38,9 @@ We are currently **0%** through this list :(
 - [ ] Packwell secret pages
 
 ## Play Coastline!
-> I'll make this better in a future commit.
+> I'll make this better in a future commit
 
-A genuinely fun Minecraft server with a focus on quality.
-
-Click the button below to learn more.
+yayy coastline! 
 
 [<img alt="modrinth" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg">](https://modrinth.com/server/coastline)
 
